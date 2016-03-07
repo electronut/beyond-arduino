@@ -3,7 +3,7 @@
   (general
     (links 53)
     (no_connects 53)
-    (area 119.812999 62.106428 190.086845 111.90188)
+    (area 119.812999 63.932999 166.699001 110.311001)
     (thickness 1.6)
     (drawings 8)
     (tracks 0)
@@ -793,12 +793,12 @@
     )
   )
 
-  (module tinybot:en-labs (layer F.SilkS) (tedit 0) (tstamp 56DD62D3)
-    (at 171.57 95.91)
-    (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
+  (module tinybot:en-labs (layer F.SilkS) (tedit 56DD7A3B) (tstamp 56DD62D3)
+    (at 142.24 86.36)
+    (fp_text reference G*** (at 2.42 9.5) (layer F.SilkS) hide
       (effects (font (thickness 0.3)))
     )
-    (fp_text value LOGO (at 0.75 0) (layer F.SilkS) hide
+    (fp_text value LOGO (at 1.658 -11.582) (layer F.SilkS) hide
       (effects (font (thickness 0.3)))
     )
     (fp_poly (pts (xy 0.720817 -3.165922) (xy 0.807099 -3.128537) (xy 0.877494 -3.065781) (xy 0.925355 -2.983244)

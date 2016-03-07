@@ -1,3 +1,5 @@
+![](tinyDriver.png)
+
 Introductory workshop.
 
 - Attiny84
