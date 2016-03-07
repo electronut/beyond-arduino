@@ -160,7 +160,7 @@ U 1 1 56DBB972
 P 1500 4050
 F 0 "P1" H 1500 4200 50  0000 C CNN
 F 1 "PWR" V 1600 4050 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 1500 4050 50  0001 C CNN
+F 2 "Terminal_Blocks:TerminalBlock_Pheonix_MPT-2.54mm_2pol" H 1500 4050 50  0001 C CNN
 F 3 "" H 1500 4050 50  0000 C CNN
 	1    1500 4050
 	-1   0    0    1   
