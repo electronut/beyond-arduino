@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/mahesh/Documents/electronics/projects/beyond-arduino/ws1/pcb/ver0.2/tinybot.sch)
-    (date "2016 March 07, Monday 15:20:16")
+    (date "2016 March 07, Monday 15:31:44")
     (tool "Eeschema 4.0.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -65,7 +65,7 @@
       (tstamp 56DBB8AC))
     (comp (ref P1)
       (value PWR)
-      (footprint Pin_Headers:Pin_Header_Straight_1x02)
+      (footprint Terminal_Blocks:TerminalBlock_Pheonix_MPT-2.54mm_2pol)
       (libsource (lib conn) (part CONN_01X02))
       (sheetpath (names /) (tstamps /))
       (tstamp 56DBB972))
