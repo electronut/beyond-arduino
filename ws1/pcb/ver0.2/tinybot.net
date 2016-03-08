@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/mahesh/Documents/electronics/projects/beyond-arduino/ws1/pcb/ver0.2/tinybot.sch)
-    (date "2016 March 08, Tuesday 11:45:00")
+    (date "2016 March 08, Tuesday 13:11:48")
     (tool "Eeschema 4.0.1-stable")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -29,7 +29,7 @@
       (tstamp 56DB9182))
     (comp (ref U2)
       (value L293D)
-      (footprint Housings_SOIC:SOIC-16_7.5x10.3mm_Pitch1.27mm)
+      (footprint Housings_SOIC:SOIC-20_7.5x12.8mm_Pitch1.27mm)
       (libsource (lib l293d) (part L293D))
       (sheetpath (names /) (tstamps /))
       (tstamp 56DBB564))
@@ -342,10 +342,10 @@
   (libraries
     (library (logical device)
       (uri "/Library/Application Support/kicad/library/device.lib"))
-    (library (logical regul)
-      (uri "/Library/Application Support/kicad/library/regul.lib"))
     (library (logical conn)
       (uri "/Library/Application Support/kicad/library/conn.lib"))
+    (library (logical regul)
+      (uri "/Library/Application Support/kicad/library/regul.lib"))
     (library (logical atmel)
       (uri "/Library/Application Support/kicad/library/atmel.lib"))
     (library (logical l293d)
