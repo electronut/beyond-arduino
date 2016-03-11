@@ -1,6 +1,6 @@
 ![](tinyDriver.png)
 
-Introductory workshop.
+## Introductory workshop.
 
 - Attiny84
 - avrdude/WinAVR
@@ -11,3 +11,9 @@ Introductory workshop.
 - Ultrasonic sensor
 - L293D
 - 2WD Chassis
+
+## Applications of tinyDriver
+
+- 2WD robot
+- Laser Display (rotating mirrors)
+- Servos?
