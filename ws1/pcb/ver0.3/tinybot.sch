@@ -270,7 +270,7 @@ F 3 "" H 4300 1650 50  0000 C CNN
 	1    4300 1650
 	1    0    0    -1  
 $EndComp
-Text Notes 3000 1950 0    60   ~ 0
+Text Notes 3050 1450 0    60   ~ 0
 DRV8835 disconnect jumper.
 Text GLabel 7100 5700 0    39   Input ~ 0
 PWM1
@@ -450,7 +450,7 @@ F 3 "" H 5700 2950 50  0000 C CNN
 	1    5700 2950
 	1    0    0    -1  
 $EndComp
-Text GLabel 4800 1150 0    39   Input ~ 0
+Text GLabel 4550 850  0    39   Input ~ 0
 VIN
 Text GLabel 8700 4600 2    39   Input ~ 0
 MODE
@@ -493,7 +493,7 @@ Wire Wire Line
 	3800 1650 4000 1650
 Connection ~ 8400 5100
 Wire Wire Line
-	8400 3500 8400 5100
+	8400 3500 8400 5600
 Wire Wire Line
 	8300 5000 7250 5000
 Wire Wire Line
@@ -678,9 +678,7 @@ Wire Wire Line
 Wire Wire Line
 	4600 1650 5100 1650
 Wire Wire Line
-	4800 1150 4950 1150
-Wire Wire Line
-	4950 1150 4950 1550
+	4950 850  4950 1550
 Wire Wire Line
 	4950 1550 5100 1550
 Connection ~ 8000 4600
@@ -703,4 +701,90 @@ F 3 "" H 2350 4500 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	2350 4200 2350 4500
+$Comp
+L SW_PUSH SW1
+U 1 1 56E2ABAC
+P 8900 5600
+F 0 "SW1" H 9050 5710 50  0000 C CNN
+F 1 "SW_PUSH" H 8900 5520 50  0000 C CNN
+F 2 "tinybot:SWITCH_SKQGAKE010" H 8900 5600 50  0001 C CNN
+F 3 "" H 8900 5600 50  0000 C CNN
+	1    8900 5600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8400 5600 8600 5600
+$Comp
+L GND #PWR016
+U 1 1 56E2AD64
+P 9400 5700
+F 0 "#PWR016" H 9400 5450 50  0001 C CNN
+F 1 "GND" H 9400 5550 50  0000 C CNN
+F 2 "" H 9400 5700 50  0000 C CNN
+F 3 "" H 9400 5700 50  0000 C CNN
+	1    9400 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9200 5600 9400 5600
+Wire Wire Line
+	9400 5600 9400 5700
+Text Notes 8600 5900 0    60   ~ 0
+Press to reset.
+$Comp
+L C C3
+U 1 1 56E2B2C0
+P 3900 2000
+F 0 "C3" H 3925 2100 50  0000 L CNN
+F 1 "0.1uF" H 3925 1900 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 3938 1850 50  0001 C CNN
+F 3 "" H 3900 2000 50  0000 C CNN
+	1    3900 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 56E2B323
+P 4700 1050
+F 0 "C4" H 4725 1150 50  0000 L CNN
+F 1 "10uF" H 4725 950 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603" H 4738 900 50  0001 C CNN
+F 3 "" H 4700 1050 50  0000 C CNN
+	1    4700 1050
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR017
+U 1 1 56E2B728
+P 3900 2300
+F 0 "#PWR017" H 3900 2050 50  0001 C CNN
+F 1 "GND" H 3900 2150 50  0000 C CNN
+F 2 "" H 3900 2300 50  0000 C CNN
+F 3 "" H 3900 2300 50  0000 C CNN
+	1    3900 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L GND #PWR018
+U 1 1 56E2B77B
+P 4700 1300
+F 0 "#PWR018" H 4700 1050 50  0001 C CNN
+F 1 "GND" H 4700 1150 50  0000 C CNN
+F 2 "" H 4700 1300 50  0000 C CNN
+F 3 "" H 4700 1300 50  0000 C CNN
+	1    4700 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4550 850  4950 850 
+Wire Wire Line
+	4700 900  4700 850 
+Connection ~ 4700 850 
+Wire Wire Line
+	4700 1200 4700 1300
+Wire Wire Line
+	3900 1850 3900 1650
+Connection ~ 3900 1650
+Wire Wire Line
+	3900 2150 3900 2300
 $EndSCHEMATC
