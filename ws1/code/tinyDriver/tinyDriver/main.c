@@ -18,51 +18,62 @@ tinyDriver stops, reverses and takes a left turn.
 // GPIO pins HIGH to accelerate
 void motorForward(int speed)
 {
+	PORTA &= 0x00;
 	// non-inverting mode
 	TCCR1A |= (1<<COM1A1)|(1<<COM1B1);
 	PORTA |= 1<<PA7;
 	PORTB |= 1<<PB2;
 	OCR1A = OCR1B = speed;
-	//_delay_ms(50);
+	PORTA |= 1<<PA2;
 }
 
 //GPIO pins low to reverse 
 void motorReverse(int speed)
 {
+	PORTA &= 0x00;
 	// non-inverting mode
     TCCR1A |= (1<<COM1A1)|(1<<COM1B1);
 	PORTA &= ~(1<<PA7);
 	PORTB &= ~(1<<PB2);
-	OCR1A = OCR1B = speed;
-	//_delay_ms(50);
+	OCR1A = OCR1B = speed;	
+	PORTA |= 1<<PA3;
 }
 
 // turn left
 void motorLeft(int speed)
 {
+	PORTA &= 0x00;
 	// non-inverting mode
 	// left motor off, right motor on
-	TCCR1A |= (1<<COM1A1)|(1<<COM1B1);
-	PORTA &= 1<<PA7;
+	
+	TCCR1A &= ~(1<<COM1A1);
+	TCCR1A |= 1<<COM1B1;
 	PORTB |= 1<<PB2;
 	OCR1B = speed;
+	PORTA |= ((1<<PA2)|(1<<PA3));
 }
 
 // turn right
 void motorRight(int speed)
 {
+	PORTA &= 0x00;
 	// non-inverting mode
 	// left motor on, right motor off
-	TCCR1A |= (1<<COM1A1)|(1<<COM1B1);
+	
+	TCCR1A |= 1<<COM1A1;
+	TCCR1A &= ~(1<<COM1B1);
 	PORTA |= 1<<PA7;
-	PORTB &= 1<<PB2;
 	OCR1A = speed;
+	PORTA |= ((1<<PA1)|(1<<PA2));
+	
 }
 
 // turn off PWM o/p channels to stop
 void motorStop()
 {
+	PORTA &= 0x00;
 	TCCR1A &= ~((1<<COM1A1)|(1<<COM1B1));
+	PORTA |= 1<<PA1;
 }
 int pinEcho = 0;
 volatile char echoDone = 0;
@@ -127,7 +138,7 @@ ISR(TIM0_OVF_vect)
 ISR(PCINT0_vect)
 {
 	// read PCINT0
-	if (PINA & (1<<pinEcho))
+	if (PINA & (1<<PA0))
 	{
 		//start 16 bit timer
 		// Divide by 1 - prescalar
@@ -152,10 +163,17 @@ ISR(PCINT0_vect)
 int main(void)
 {
 	// pin set-up
-	// PB1 - mode pin HIGH for phase enable in motor driver, PB0 - trigger, PB2 - GPIO for motor 2
+	
+	// PB0 - trigger
+	// PB2 - GPIO for motor 2
+	// PB1 - mode pin HIGH for phase enable in motor driver
 	DDRB |= (1<<PB2)|(1<<PB1)|(1<<PB0);
-	// PA6, PA5 = OC1A, OC1B - PWM, PA7 = GPIO for motor 1
-	DDRA |= (1<<PA7)|(1<<PA6)|(1<<PA5);
+	
+	// PA1, PA2, PA3 = R,G,B leads of the LED
+	// PA6, PA5 = OC1A, OC1B - PWM
+	// PA7 = GPIO for motor 1, 
+	DDRA |= (1<<PA7)|(1<<PA6)|(1<<PA5)|(1<<PA1)|(1<<PA2)|(1<<PA3);
+	
 	// Pull-up mode for PA0 - echo pin
 	PORTB |= 1<<PB1;
 	
@@ -167,16 +185,7 @@ int main(void)
 	// register clear while in PWM mode
 	TCCR1C = 0x00;
 	
-	float prevDist = 0.0;
-/*	while(1)
-	{
-		motorForward(200);
-		_delay_ms(2000);	
-		motorReverse(200);
-		_delay_ms(2000);
-	}
-*/	
-	
+	float prevDist = 0.0;	
 	while (1) 
     {	
 		float dist = getDistance();
@@ -184,24 +193,33 @@ int main(void)
 		{
 			dist = prevDist;
 		}
-		//prevDist = dist;
+	// prevDist = dist;
 		if(dist>=10)
 		{
-			// no obstacle detected
-			// move forward
-			motorForward(150);
+		// no obstacle detected
+		// move forward
+			motorForward(150);	
 		}
 		else
 		{
+		// stop
 			motorStop();
 			_delay_ms(1000);
+		
+		// reverse
 			motorReverse(150);
 			_delay_ms(2000);
-			motorLeft(150);
+		
+		// right turn
+			motorRight(150);
 			_delay_ms(1000);
+			
+		// left turn
+		//	motorLeft(150);
+		//	_delay_ms(1000);
+				
 		}
-		_delay_ms(50);
-    }
+	}
 	return 1;
 }
 
