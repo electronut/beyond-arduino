@@ -1,0 +1,1 @@
+2wdbot.atsln is an Atmel Studio Project.
