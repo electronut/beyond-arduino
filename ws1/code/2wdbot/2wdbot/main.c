@@ -7,6 +7,10 @@ DRV8835 uses timer1 in Phase-Correct PWM mode.
 Initially, 2wdbot moves forward. On obstacle detection within a range of 10 cms,
 2wdbot stops, reverses and takes a right turn.
 
+
+author : electronut Labs
+email  : electronut.in
+
 */
 
 #define F_CPU 8000000
@@ -209,7 +213,7 @@ int main(void)
 			
             // left turn
             // motorLeft(150);
-            //	_delay_ms(1000);
+            // _delay_ms(1000);
         }
     }
 return 1;
