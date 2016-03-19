@@ -1,3 +1,0 @@
-(fp_lib_table
-  (lib (name tinybot)(type KiCad)(uri "$(KIPRJMOD)/tinybot.pretty")(options "")(descr ""))
-)

@@ -1,7 +1,0 @@
-EESchema-DOCLIB  Version 2.0
-#
-$CMP P_MOS
-D P-Channel MOSFET
-$ENDCMP
-#
-#End Doc Library
